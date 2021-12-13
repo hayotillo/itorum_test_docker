@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container products-view-user">
+        {% csrf_token %}
+        <article class="navbar-form navbar-left p-0 m-0 ml-b">
+            <div class="form-group">
+                <label>Filter by week period: </label>
+                <select id="week-select" class="form-control post_max">
+                </select>
+            </div>
+            <input type = "button" value = "Filter" class = "btn btn-primary" />
+        </article>
+        <br class = "clear" />
+        <div class = "wave-box-wrapper">
+            <div class = "wave-box"></div>
+            <table class = "table table-striped table-post-list no-margin">
+                <thead>
+                <tr>
+                    <th id = "date"><a href = "#">Date</a></th>
+                    <th id = "clients"><a href = "#">Clients</a></th>
+                    <th id = "sum-price"><a href = "#">Sum price</a></th>
+                </tr>
+                </thead>
+                <tbody id="order-list" class="pagination-container"></tbody>
+                <tfoot id="order-list-foot"></tfoot>
+            </table>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            initPublicOrderPage();
+        }
+    </script>
+{% endblock %}
